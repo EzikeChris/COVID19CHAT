@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static  %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Covid19Chat</title>
+
+
+        <!-- <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static 'covid19chat/css/master.css'%}">
+
+
+    </head>
+    <body>
+
+
+<nav class="navbar mynav" role='navigation' id='navbar'>
+    <div class="container">
+        <a class="navbar-brand mynav" href="{% url 'home' %}">Covid19Chat</a>
+         
+         <ul class= 'nav navbar-nav navbar-right'>
+            {% if user.is_authenticated %}
+            <li><a href="#">Post</a></li>
+            <li><a href="#">Threads</a></li>
+            <li><a href="#">Create Thread</a></li>
+            <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a href="#">Threads</a></li>
+            <li><a href="{% url 'accounts:login'%}">Log in</a></li>
+            <li><a href="{% url 'accounts:signup'%}">Signup</a></li>
+            {% endif %}
+        </ul>
+    
+    </div>
+</nav>
+
+<div class="container mycontent">
+    
+    
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+    </body>
+</html>
